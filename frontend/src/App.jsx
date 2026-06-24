@@ -198,7 +198,7 @@ export default function App() {
           </div>
 
           <p style={{ color: "var(--slate)", fontSize: 15 }}>
-          Ask questions about Indian bird species, habitats, behavior, and conservation.          </p>
+            Ask questions about Indian bird species, habitats, behavior, and conservation.          </p>
         </div>
 
         {/* Search */}
@@ -453,7 +453,15 @@ export default function App() {
           fontFamily: "var(--font-mono)",
         }}
       >
-        Made with ❤️ by Sachin Prabhu • Powered by MongoDB Atlas Search & Groq Llama 3.1
+        Made with ❤️ by Sachin Prabhu • Powered by MongoDB Atlas Search & Groq Llama 3.1 •{" "}
+        <a
+          href="https://github.com/sachinprabhu007/Pakshi-Search"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "inherit" }}
+        >
+          GitHub
+        </a>
       </footer>
     </div>
   );
