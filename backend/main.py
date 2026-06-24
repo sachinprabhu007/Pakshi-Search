@@ -62,19 +62,22 @@ def debug():
     }
 
 from pymongo import MongoClient
-import os
 
 @app.get("/mongo-debug")
 def mongo_debug():
     try:
         client = MongoClient(
             os.getenv("MONGO_URI"),
+            tlsAllowInvalidCertificates=True,
             serverSelectionTimeoutMS=5000
         )
         client.admin.command("ping")
         return {"status": "connected"}
     except Exception as e:
-        return {"status": "failed", "error": str(e)}
+        return {
+            "type": type(e).__name__,
+            "error": repr(e)
+        }
     
 import ssl
 
