@@ -225,3 +225,4 @@ def ask(question: str) -> dict:
         # "route": route,
         "latency_seconds": latency
     }
+

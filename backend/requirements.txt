@@ -1,4 +1,4 @@
-pymongo>=4.10.1
+pymongo==4.7.2
 dnspython>=2.6.1
 wikipedia==1.4.0
 fastapi==0.111.0

@@ -86,3 +86,15 @@ def ssl_debug():
     return {
         "openssl": ssl.OPENSSL_VERSION
     }
+
+import ssl
+import pymongo
+import sys
+
+@app.get("/env-debug")
+def env_debug():
+    return {
+        "python": sys.version,
+        "openssl": ssl.OPENSSL_VERSION,
+        "pymongo": pymongo.version,
+    }
