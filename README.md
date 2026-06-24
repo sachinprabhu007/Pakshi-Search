@@ -8,7 +8,8 @@ Instead of embeddings and vector databases, the system uses MongoDB Atlas Search
 
 ## Screenshot
 
-![Pakshi Search](assets/pakshi-search-demo.png)
+![](assets/screenshot1.png)
+![](assets/screenshot2.png)
 
 ---
 
