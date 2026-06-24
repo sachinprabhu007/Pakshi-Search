@@ -100,9 +100,6 @@ Pakshi Search demonstrates an alternative approach using traditional information
 ## Project Structure
 
 ```text
-## Project Structure
-
-```text
 pakshi-search/
 │
 ├── README.md
