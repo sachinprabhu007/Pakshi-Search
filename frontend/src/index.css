@@ -98,3 +98,29 @@ a {
     font-size: 15px;
   }
 }
+
+
+.hero-bird {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 16px;
+  display: block;
+  margin: 16px auto;
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-bird {
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-bird {
+    height: 180px;
+  }
+}

@@ -1,26 +1,20 @@
----
-title: Pakshi Search
-emoji: 🐦
-colorFrom: blue
-colorTo: green
-sdk: docker
-app_port: 7860
-pinned: false
----
-
 # 🪶 Pakshi Search
 
-Pakshi Search is a vectorless Retrieval-Augmented Generation (RAG) application for exploring Indian bird species.
+Pakshi Search is a vectorless Retrieval-Augmented Generation (RAG) application that uses MongoDB Atlas Search (BM25/Lucene) and Groq Llama 3 to answer questions about Indian bird species without relying on embeddings or vector databases.
 
 Instead of embeddings and vector databases, the system uses MongoDB Atlas Search (Apache Lucene / BM25) for retrieval and Groq Llama 3 for answer generation.
+
+--- 
+
+## Screenshot
+
+![Pakshi Search](assets/pakshi-search-demo.png)
 
 ---
 
 ## Live Demo
 
-Frontend: Coming Soon
-
-Backend API: Coming Soon
+🌐 [Pakshi Search](https://pakshi-search.vercel.app/)
 
 ---
 
@@ -72,8 +66,8 @@ Pakshi Search demonstrates an alternative approach using traditional information
 
 ### Advantages
 
-- No embedding generation
-- No vector database
+- No embedding generation pipeline
+- No dedicated vector database
 - Lower infrastructure complexity
 - Explainable retrieval scores
 - Faster ingestion pipeline
@@ -103,25 +97,41 @@ Pakshi Search demonstrates an alternative approach using traditional information
 ## Project Structure
 
 ```text
+## Project Structure
+
+```text
 pakshi-search/
+│
+├── README.md
+├── .gitignore
+│
+├── assets/
+│
 ├── backend/
-│   ├── scraper.py
-│   ├── rag.py
 │   ├── main.py
-│   ├── requirements.txt
-│   └── .env.example
+│   ├── rag.py
+│   ├── scraper.py
+│   └── requirements.txt
 │
 └── frontend/
+    ├── public/
+    │   └── birds/
+    │       ├── indian-peafowl.jpg
+    │       ├── great-hornbill.jpg
+    │       ├── sarus-crane.jpg
+    │       ├── indian-roller.jpg
+    │       └── greater-flamingo.jpg
+    │
     ├── src/
     │   ├── App.jsx
     │   ├── main.jsx
     │   └── index.css
+    │
+    ├── index.html
     ├── package.json
     ├── package-lock.json
-    ├── index.html
-    └── .env.example
+    └── vite.config.js
 ```
-
 ---
 
 ## Setup
@@ -246,7 +256,14 @@ Configuration:
 
 ### 10. Verify Atlas Search
 
-Run the following aggregation in Atlas Query Editor:
+1. Open MongoDB Atlas.
+2. Navigate to your cluster.
+3. Click **Browse Collections**.
+4. Select the `pakshi_vectorless` database.
+5. Select the `bird_knowledge` collection.
+6. Click **Aggregation**.
+7. Create a new aggregation pipeline.
+8. Paste the following pipeline:
 
 ```javascript
 db.bird_knowledge.aggregate([
@@ -269,13 +286,6 @@ db.bird_knowledge.aggregate([
     $limit: 5
   }
 ])
-```
-
-Expected result:
-
-```text
-Indian Peafowl
-score: ...
 ```
 
 This confirms that Atlas Search is functioning correctly.
@@ -384,11 +394,7 @@ Features:
 - LangChain-powered RAG
 - Hugging Face deployment
 
-Repository:
-
-```text
-https://github.com/sachinprabhu007/Pakshi-AI
-```
+Repository: [Pakshi AI](https://github.com/sachinprabhu007/Pakshi-AI)
 
 ---
 

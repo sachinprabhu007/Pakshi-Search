@@ -13,3 +13,9 @@ dist/
 
 misc_backend/
 misc_frontend/
+
+# Vite cache
+.vite/
+
+# Python cache
+*.pyo
