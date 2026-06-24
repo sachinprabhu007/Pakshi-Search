@@ -75,3 +75,11 @@ def mongo_debug():
         return {"status": "connected"}
     except Exception as e:
         return {"status": "failed", "error": str(e)}
+    
+import ssl
+
+@app.get("/ssl-debug")
+def ssl_debug():
+    return {
+        "openssl": ssl.OPENSSL_VERSION
+    }
