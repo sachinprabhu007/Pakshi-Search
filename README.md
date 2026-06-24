@@ -1,3 +1,13 @@
+---
+title: Pakshi Search
+emoji: 🐦
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # 🪶 Pakshi Search
 
 Pakshi Search is a vectorless Retrieval-Augmented Generation (RAG) application for exploring Indian bird species.
