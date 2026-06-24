@@ -8,8 +8,10 @@ Instead of embeddings and vector databases, the system uses MongoDB Atlas Search
 
 ## Screenshot
 
-![](assets/screenshot1.png)
-![](assets/screenshot2.png)
+<img width="1920" height="1080" alt="screenshot 1" src="/assets/screenshot_1.png" />
+
+<img width="1920" height="1080" alt="screenshot 2" src="/assets/screenshot_2.png" />
+
 
 ---
 
