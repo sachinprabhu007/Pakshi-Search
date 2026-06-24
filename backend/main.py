@@ -47,3 +47,32 @@ def query(req: QueryRequest):
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+from urllib.parse import urlparse
+
+@app.get("/debug")
+def debug():
+    import pymongo
+
+    uri = os.getenv("MONGO_URI")
+
+    return {
+        "mongo_uri_exists": bool(uri),
+        "mongo_uri_prefix": uri[:40] if uri else None,
+        "pymongo_version": pymongo.version
+    }
+
+from pymongo import MongoClient
+import os
+
+@app.get("/mongo-debug")
+def mongo_debug():
+    try:
+        client = MongoClient(
+            os.getenv("MONGO_URI"),
+            serverSelectionTimeoutMS=5000
+        )
+        client.admin.command("ping")
+        return {"status": "connected"}
+    except Exception as e:
+        return {"status": "failed", "error": str(e)}
