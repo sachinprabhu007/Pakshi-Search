@@ -52,14 +52,13 @@ from urllib.parse import urlparse
 
 @app.get("/debug")
 def debug():
-    import pymongo
-
     uri = os.getenv("MONGO_URI")
 
     return {
-        "mongo_uri_exists": bool(uri),
-        "mongo_uri_prefix": uri[:40] if uri else None,
-        "pymongo_version": pymongo.version
+        "exists": bool(uri),
+        "length": len(uri) if uri else 0,
+        "endswith_newline": uri.endswith("\n") if uri else False,
+        "startswith_mongodb_srv": uri.startswith("mongodb+srv://") if uri else False,
     }
 
 from pymongo import MongoClient
