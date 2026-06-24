@@ -13,11 +13,21 @@ logging.basicConfig(
     format="%(asctime)s | %(levelname)s | %(message)s"
 )
 
+# client = MongoClient(
+#     os.getenv("MONGO_URI"),
+#     tlsAllowInvalidCertificates=True,
+#     serverSelectionTimeoutMS=10000
+# )
+
+import certifi
+
 client = MongoClient(
     os.getenv("MONGO_URI"),
-    tlsAllowInvalidCertificates=True,
+    tls=True,
+    tlsCAFile=certifi.where(),
     serverSelectionTimeoutMS=10000
 )
+
 collection = client["pakshi_vectorless"]["bird_knowledge"]
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
